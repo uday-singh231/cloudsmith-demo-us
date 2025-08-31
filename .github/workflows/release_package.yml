@@ -45,7 +45,7 @@ jobs:
         run: |
           shopt -s nullglob
           ls -la
-          files=(dist/*.tar.gz)
+          files=(${{ GITHUB_WORKSPACE }}/dist/*.tar.gz)
 
           if [ ${#files[@]} -eq 0 ]; then
             echo "No package found to upload"
