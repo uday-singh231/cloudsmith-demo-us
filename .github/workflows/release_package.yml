@@ -35,7 +35,7 @@ jobs:
 
 
       - name: List directory contents
-        run: ls -la dist/ && pwd && ls -la
+        run: ls -la dist/ && cd $GITHUB_WORKSPACE && ls -la
         shell: bash
 
       - name: setup cloudsmith cli
