@@ -44,7 +44,7 @@ jobs:
       - name: Push package to Cloudsmith
         run: |
           shopt -s nullglob
-          ls -la
+          ls -la && ls -la ..
           files=(../dist/*.tar.gz)
 
           if [ ${#files[@]} -eq 0 ]; then
