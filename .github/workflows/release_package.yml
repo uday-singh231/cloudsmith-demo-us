@@ -43,15 +43,10 @@ jobs:
 
       - name: Push package to Cloudsmith
         run: |
-          echo $GITHUB_WORKSPACE
-          ls && pwd
-          shopt -s nullglob
-          files=(dist/*.tar.gz)
-
-          if [ ${#files[@]} -eq 0 ]; then
+          pwd && ls -la
+          if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
             echo "No package found to upload"
             exit 1
-          else
-            cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish
           fi
+          echo "cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish"
         shell: bash
