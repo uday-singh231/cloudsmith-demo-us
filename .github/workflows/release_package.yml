@@ -43,7 +43,7 @@ jobs:
 
       - name: Push package to Cloudsmith
         run: |
-          ls $GITHUB_WORKSPACE
+          ls dist
           shopt -s nullglob
           files=(../dist/*.tar.gz)
 
