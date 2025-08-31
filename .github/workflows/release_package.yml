@@ -33,8 +33,9 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
 
       - name: List directory contents
-        run: ls -la dist/
-         if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
+        run: |
+          ls -la dist/
+          if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
             echo "No package found to upload"
             exit 1
           fi
