@@ -32,10 +32,13 @@ jobs:
           github-token: ${{ github.token }}
           run-id: ${{ github.event.workflow_run.id }}
 
-
-
       - name: List directory contents
-        run: ls -la dist/ && cd $GITHUB_WORKSPACE && ls -la
+        run: ls -la dist/
+         if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
+            echo "No package found to upload"
+            exit 1
+          fi
+          echo "cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish"
         shell: bash
 
       - name: setup cloudsmith cli
@@ -44,9 +47,4 @@ jobs:
       - name: Push package to Cloudsmith
         run: |
           pwd && ls -la
-          if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
-            echo "No package found to upload"
-            exit 1
-          fi
-          echo "cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish"
         shell: bash
