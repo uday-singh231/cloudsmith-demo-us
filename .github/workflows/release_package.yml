@@ -38,6 +38,9 @@ jobs:
         run: ls -la dist/
         shell: bash
 
+      - name: setup cloudsmith cli
+        uses: actions/checkout@v4
+
       - name: Push package to Cloudsmith
         run: |
           if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
