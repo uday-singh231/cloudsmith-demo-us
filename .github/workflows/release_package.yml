@@ -43,9 +43,12 @@ jobs:
 
       - name: Push package to Cloudsmith
         run: |
-          if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
+          if ls dist/*.tar.gz 1> /dev/null 2>&1; then
+            cloudsmith push python \
+              "${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }}" \
+              dist/*.tar.gz --republish
+          else
             echo "No package found to upload"
             exit 1
           fi
-          cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish
         shell: bash
