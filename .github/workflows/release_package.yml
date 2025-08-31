@@ -44,8 +44,8 @@ jobs:
       - name: Push package to Cloudsmith
         run: |
           shopt -s nullglob
-          ls -la
-          files=(${{ GITHUB_WORKSPACE }}/dist/*.tar.gz)
+          cd ${{ GITHUB_WORKSPACE }} && ls -la
+          files=(dist/*.tar.gz)
 
           if [ ${#files[@]} -eq 0 ]; then
             echo "No package found to upload"
