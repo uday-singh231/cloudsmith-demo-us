@@ -43,12 +43,18 @@ jobs:
 
       - name: Push package to Cloudsmith
         run: |
-          if ls dist/*.tar.gz 1> /dev/null 2>&1; then
-            cloudsmith push python \
-              "${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }}" \
-              dist/*.tar.gz --republish
-          else
-            echo "No package found to upload"
-            exit 1
+          shopt -s nullglob
+          files=(dist/*.tar.gz)
+
+          if [ ${#files[@]} -eq 0 ]; then
+              echo "No package found to upload"
+              exit 1
           fi
+
+          for pkg in "${files[@]}"; do
+              echo "Uploading $pkg ..."
+              cloudsmith push python \
+                "${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }}" \
+                "$pkg" --republish
+          done
         shell: bash
