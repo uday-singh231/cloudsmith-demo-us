@@ -36,16 +36,15 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
 
       - name: List directory contents
-        run: |
-          ls -la dist/
-          if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
-            echo "No package found to upload"
-            exit 1
-          fi
-          echo "cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish"
+        run: ls -la dist/
         shell: bash
 
       - name: Push package to Cloudsmith
         run: |
           pwd && ls -la
+          if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
+            echo "No package found to upload"
+            exit 1
+          fi
+          echo "cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish"
         shell: bash
