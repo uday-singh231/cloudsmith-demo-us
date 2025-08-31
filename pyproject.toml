@@ -1,17 +1,4 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[project]
-
-authors = [
-  { name="Example Author", email="author@example.com" },
-]
-description = "A small example package"
-readme = "README.md"
-requires-python = ">=3.8"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-] 
+ [project]
+    name = "cs-assessment"
+    dynamic = ["version"]
+    # ... other project metadata
