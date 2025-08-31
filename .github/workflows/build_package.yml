@@ -34,6 +34,7 @@ jobs:
 
       - name: Build package
         run: |
+          cd $GITHUB_WORKSPACE
           pip install build
           python -m build
           pwd && ls -la
