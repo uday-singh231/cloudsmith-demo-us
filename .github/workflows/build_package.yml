@@ -37,7 +37,7 @@ jobs:
           pip install build
           python -m build
           pwd && ls -la
-          tar -cvzf cs-assessment-0-0-0.tar.gz *.whl
+          cd dist && tar -cvzf cs-assessment-0-0-0.tar.gz *.whl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
