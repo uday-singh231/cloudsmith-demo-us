@@ -14,7 +14,7 @@ env:
   CLOUDSMITH_SERVICE_SLUG: ${{ vars.CLOUDSMITH_SERVICE_SLUG }}
 
 permissions:
-id-token: write
+  id-token: write
   contents: read
   actions: read
 
