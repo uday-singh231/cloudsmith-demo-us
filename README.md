@@ -1,5 +1,6 @@
 **Welcome to Cloudsmith Support Assessment**
 
+
 Please review the documentation provided by the recruiter for full instructions.
 
 **Repository Overview**
