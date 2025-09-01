@@ -1,4 +1,4 @@
  [project]
     name = "cs-assessment"
-    dynamic = ["version"]
+    version = "1.0.0"
     # ... other project metadata
