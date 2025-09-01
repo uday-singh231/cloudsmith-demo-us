@@ -51,6 +51,7 @@ jobs:
             echo "No package found to upload"
             exit 1
           fi
-          echo "deployinh artifact"
+          echo "deploying artifact"
+          ls -la dist/
           cloudsmith push python ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_REPOSITORY }} dist/*.tar.gz --republish
         shell: bash
