@@ -25,10 +25,11 @@ jobs:
 
     steps:
       - name: Install Cloudsmith CLI
-        uses: cloudsmith-io/cloudsmith-cli-action@v1.0.1
+        uses: cloudsmith-io/cloudsmith-cli-action@v1.0.3
         with:
           oidc-namespace: ${{ env.CLOUDSMITH_NAMESPACE }}
           oidc-service-slug: ${{ env.CLOUDSMITH_SERVICE_SLUG }}
+          oidc-auth-only: 'false'
         
       - name: Download artifact
         uses: actions/download-artifact@v4
