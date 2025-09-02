@@ -13,7 +13,7 @@ env:
   CLOUDSMITH_STAGING_REPO: 'cs-uday-staginh'
   CLOUDSMITH_PRODUCTION_REPO: 'cs-uday-prod'
   CLOUDSMITH_SERVICE_SLUG: ${{ vars.CLOUDSMITH_SERVICE_SLUG }}
-  PACKAGE_NAME: 'example_package'
+  PACKAGE_NAME: 'example-package'
 
 permissions:
   id-token: write
