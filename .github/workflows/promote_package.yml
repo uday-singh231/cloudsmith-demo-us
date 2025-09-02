@@ -33,7 +33,7 @@ jobs:
         run: |
           PACKAGE_VERSION="${{ github.event.client_payload.package_version }}"
           PACKAGE_QUERY="filename:${PACKAGE_NAME}-${PACKAGE_VERSION}.tar.gz"
-          PACKAGE_ID=$(cloudsmith list ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO} --query "$PACKAGE_QUERY" --output-format json)
+          PACKAGE_ID=$(cloudsmith list packages ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO} -q "$PACKAGE_NAME" --output-format json | jq -r '.data[0].filename')
           echo "Found package ID: $PACKAGE_ID"
           
           # Add tag
