@@ -15,7 +15,7 @@
      * In Permissions section, added `id-token: write`
      * Added Action for cloudsmith-io/cloudsmith-cli-action@v1.0.3
      * for OIDC auth added namespce/workspace and service slug vars in with section.
-<br>
+   <br>
 ## Promote_package.yml
 - Configure webook in Staging repo
 - Changed `workflow_disptach` to `repository_dispatch` and configure trigger event.
