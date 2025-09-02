@@ -19,5 +19,3 @@
 ## Promote_package.yml
 - Configure webook in Staging repo
 - Changed `workflow_disptach` to `repository_dispatch` and configure trigger event.
-- Changed following command from `cloudsmith list package ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_STAGING_REPO }} -q "$PACKAGE_QUERY" -F json` to `PACKAGE_ID=$(cloudsmith list packages ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO} -q "$PACKAGE_NAME" --output-format json | jq -r '.data[0].identifier_perm')`
-- Added command to list all vars for ready-for-production tag `cloudsmith list packages ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO} -q "tag:ready-for-production" --output-format json | jq -r '.data[0].identifier_perm'`
