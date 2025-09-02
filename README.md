@@ -9,7 +9,7 @@ This repository contains a simple Python package that can be built and published
 **Setup**
 
 1. Clone the repository to your local machine
-2. Create a new private repo in your Github namespace
+2. Create a new private repo in your Github namespaces
 3. Upload the code to the newly created Github repo
 4. Start debugging!
 5. Make sure to share access with the appointed people in the email
