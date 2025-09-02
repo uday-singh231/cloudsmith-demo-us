@@ -43,4 +43,4 @@ jobs:
         run: |
           PACKAGE_QUERY="tag:ready-for-production"
           echo "Searching for packages with tag $PACKAGE_QUERY ..."
-          cloudsmith mv ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO} ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_PRODUCTION_REPO} --query "$PACKAGE_QUERY"
+          cloudsmith mv ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO}/${PACKAGE_ID} ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_PRODUCTION_REPO} --query "$PACKAGE_QUERY"
