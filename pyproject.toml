@@ -1,4 +1,4 @@
  [project]
-    name = "cs-assessment"
+    name = "example_package"
     version = "1.0.0"
     # ... other project metadata
