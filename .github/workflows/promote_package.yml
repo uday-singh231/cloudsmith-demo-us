@@ -41,6 +41,6 @@ jobs:
 
       - name: Promote tagged packages to production
         run: |
-          PACKAGE_QUERY="tag:ready-for-production"
-          echo "Searching for packages with tag $PACKAGE_QUERY ..."
-          cloudsmith mv ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO}/${PACKAGE_ID} ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_PRODUCTION_REPO} --query "$PACKAGE_QUERY"
+          PROD_PACKAGE_ID=$(cloudsmith list packages ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO} -q "tag:ready-for-production" --output-format json | jq -r '.data[0].identifier_perm')
+          echo "Searching for packages with tag $PROD_PACKAGE_ID ..."
+          cloudsmith mv ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO}/${PROD_PACKAGE_ID} ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_PRODUCTION_REPO}"
