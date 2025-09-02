@@ -44,4 +44,4 @@ jobs:
           PROD_PACKAGE_ID=$(cloudsmith list packages ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO} -q "tag:ready-for-production" --output-format json | jq -r '.data[0].identifier_perm')
           echo "Searching for packages with tag $PROD_PACKAGE_ID ..."
           echo "package found moving to prod"
-          cloudsmith mv ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO}/${PROD_PACKAGE_ID} ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_PRODUCTION_REPO} -y
+          cloudsmith mv ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_STAGING_REPO}/${PROD_PACKAGE_ID} ${CLOUDSMITH_PRODUCTION_REPO} -y
